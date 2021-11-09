@@ -4,6 +4,7 @@ import time
 from food import Food
 from scoreboard import ScoreBoard
 from gameover import GameOver
+from bd_sqlite import Database
 
 
 def init_screen():
@@ -26,6 +27,7 @@ score = ScoreBoard()
 screen = init_screen()
 game_is_on = True
 endwall = (-300, 300)
+bd = Database()
 
 while game_is_on:
     screen.update()
@@ -53,5 +55,8 @@ while game_is_on:
     # Конец игры
     if not game_is_on:
         gameover = GameOver()
+        user_name = screen.textinput(title="Введите имя", prompt="Ваше имя")
+        user_score = score.score
+        bd.add_item(name=user_name, score=user_score)
 
 screen.exitonclick()
