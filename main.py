@@ -45,11 +45,10 @@ while game_is_on:
         game_is_on = False
 
     # Змея столкнулась со своим хвостом
-    for index in range(1, len(snake.segments) - 1):
-        if snake.head.distance(snake.segments[index]) < 10:
+    for seg in snake.segments[1:]:
+        if snake.head.distance(seg) < 10:
             game_is_on = False
             break
-
 
     # Конец игры
     if not game_is_on:

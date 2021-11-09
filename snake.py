@@ -4,6 +4,7 @@ FORWARD = 0
 BACK = 180
 LEFT = 90
 RIGHT = 270
+NUMBER_SEGMENTS = 3
 
 
 class Snake:
@@ -11,7 +12,7 @@ class Snake:
         self.segments = []
 
         x = 0
-        for _ in range(3):
+        for _ in range(NUMBER_SEGMENTS):
             self.creat_turtle(x, 0)
             x -= 20
         self.head = self.segments[0]
